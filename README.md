@@ -1,4 +1,4 @@
-# flutter_application_4
+# insights_news
 
 A new Flutter project.
 
