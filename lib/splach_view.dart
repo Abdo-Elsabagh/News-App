@@ -6,7 +6,7 @@ class SplachView extends StatefulWidget {
   const SplachView({super.key});
 
   @override
-  State<SplachView> createState() => _SplachViewState();
+  State<SplachView> createState() => _SplachViewState();    
 }
 
 class _SplachViewState extends State<SplachView> {

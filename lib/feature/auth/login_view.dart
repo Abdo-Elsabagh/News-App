@@ -10,7 +10,6 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -23,9 +22,10 @@ class _LoginViewState extends State<LoginView> {
             ),
             Text('Login to your Account',
                 style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
                     color: AppColors.white)),
+                    
           ],
         ),
       ),
