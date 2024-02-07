@@ -14,7 +14,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(scaffoldBackgroundColor: AppColors.sacffoldBG),
+        theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.sacffoldBG,
+            inputDecorationTheme: InputDecorationTheme(
+              labelStyle: TextStyle(color: AppColors.grey),
+              suffixIconColor: AppColors.lomanda,
+              prefixIconColor: AppColors.lomanda,
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: AppColors.white)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: AppColors.lomanda)),
+              focusedErrorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(color: Colors.red)),
+              errorBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(color: Colors.red)),
+            )),
         home: const SplachView());
   }
 }
