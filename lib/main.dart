@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             scaffoldBackgroundColor: AppColors.sacffoldBG,
+            iconTheme: IconThemeData(color: AppColors.grey),
             inputDecorationTheme: InputDecorationTheme(
               labelStyle: TextStyle(color: AppColors.grey),
               suffixIconColor: AppColors.lomanda,

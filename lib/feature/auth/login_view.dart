@@ -30,9 +30,7 @@ class _LoginViewState extends State<LoginView> {
                 height: 40,
               ),
               TextFormField(
-                decoration: InputDecoration(
-                
-                ),
+                decoration: InputDecoration(),
               )
             ],
           ),
