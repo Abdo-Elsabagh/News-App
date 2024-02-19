@@ -38,7 +38,7 @@ class _LoginViewState extends State<LoginView> {
                   decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.email),
                       label: const Text('Email'),
-                      hintText: ('Enter y Email'),
+                      hintText: ('Enter your Email'),
                       hintStyle:
                           TextStyle(color: AppColors.grey, fontSize: 15)),
                 ),
@@ -61,7 +61,7 @@ class _LoginViewState extends State<LoginView> {
                                 ? Icons.remove_red_eye
                                 : Icons.visibility_off_rounded)),
                         label: const Text('Password'),
-                        hintText: ('Enter y Password'),
+                        hintText: ('Enter your Password'),
                         hintStyle:
                             TextStyle(color: AppColors.grey, fontSize: 15))),
                 const SizedBox(
