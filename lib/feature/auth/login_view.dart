@@ -9,6 +9,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  bool isVisable = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +22,7 @@ class _LoginViewState extends State<LoginView> {
               children: [
                 Image.asset(
                   'assets/logo.png',
-                  width: 250,
+                  width: 220,
                 ),
                 Text('Login to your Account',
                     style: TextStyle(
@@ -39,7 +40,7 @@ class _LoginViewState extends State<LoginView> {
                       label: const Text('Email'),
                       hintText: ('Enter y Email'),
                       hintStyle:
-                          TextStyle(color: AppColors.white, fontSize: 15)),
+                          TextStyle(color: AppColors.grey, fontSize: 15)),
                 ),
                 const SizedBox(
                   height: 15,
@@ -47,17 +48,57 @@ class _LoginViewState extends State<LoginView> {
                 TextFormField(
                     style: TextStyle(color: AppColors.white),
                     keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
+                    obscureText: isVisable,
                     decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.lock),
                         suffixIcon: IconButton(
-                          icon: Icon(Icons.remove_red_eye),
-                          onPressed: () {},
-                        ),
+                            onPressed: () {
+                              setState(() {
+                                isVisable = !isVisable;
+                              });
+                            },
+                            icon: Icon((isVisable)
+                                ? Icons.remove_red_eye
+                                : Icons.visibility_off_rounded)),
                         label: const Text('Password'),
                         hintText: ('Enter y Password'),
                         hintStyle:
-                            TextStyle(color: AppColors.white, fontSize: 15))),
+                            TextStyle(color: AppColors.grey, fontSize: 15))),
+                const SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    height: 40,
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: AppColors.lomanda,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: const Text('login'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'I havn\'t an account ',
+                      style: TextStyle(color: AppColors.grey, fontSize: 16),
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Creat One!',
+                          style:
+                              TextStyle(color: AppColors.lomanda, fontSize: 16),
+                        ))
+                  ],
+                )
               ],
             ),
           ),
