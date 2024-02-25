@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_4/core/app_colors.dart';
-import 'package:flutter_application_4/feature/auth/register_view.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   bool isVisable = true;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _LoginViewState extends State<LoginView> {
                   'assets/logo.png',
                   width: 220,
                 ),
-                Text('Login to your Account',
+                Text('Create a new Account',
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -92,12 +91,7 @@ class _LoginViewState extends State<LoginView> {
                       style: TextStyle(color: AppColors.grey, fontSize: 16),
                     ),
                     TextButton(
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
-                            builder: (context) => const RegisterView(),
-                          ));
-                        },
+                        onPressed: () {},
                         child: Text(
                           'Creat One!',
                           style:
@@ -111,5 +105,6 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
+    ;
   }
 }
