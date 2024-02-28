@@ -21,6 +21,7 @@ class _HomeViewState extends State<HomeView> {
     const NotificationView(),
     const ProfileView(),
   ];
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[currentIndex],
