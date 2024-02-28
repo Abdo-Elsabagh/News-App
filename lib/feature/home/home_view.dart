@@ -10,6 +10,15 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder(); 
+    return Scaffold(
+      body: const Column(),
+      bottomNavigationBar: BottomNavigationBar(items: const [
+        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.notifications), label: 'Notifications'),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+      ]),
+    );
   }
 }

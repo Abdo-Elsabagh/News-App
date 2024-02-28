@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/core/app_colors.dart';
-import 'package:flutter_application_4/feature/auth/login_view.dart';
+import 'package:insights_news/core/app_colors.dart';
+import 'package:insights_news/feature/auth/login_view.dart';
 
 class SplachView extends StatefulWidget {
   const SplachView({super.key});
