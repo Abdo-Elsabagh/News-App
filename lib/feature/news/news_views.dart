@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:insights_news/core/app_colors.dart';
 
@@ -47,7 +48,33 @@ class _NewsViewState extends State<NewsView> {
                   ),
                 )
               ],
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CarouselSlider.builder(
+                itemCount: 15,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) =>
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset(
+                            'assets/image 2.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                options: CarouselOptions(
+                  height: 150,
+                  viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: true,
+                  autoPlay: true,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                ))
           ],
         ),
       )),
