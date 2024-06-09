@@ -2,6 +2,7 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:insights_news/core/app_colors.dart';
+import 'package:insights_news/feature/news/widget/news_list_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class NewsView extends StatefulWidget {
@@ -106,7 +107,7 @@ class _NewsViewState extends State<NewsView> {
                 backgroundColor: AppColors.lomanda,
                 unselectedBackgroundColor: const Color(0xff30312D),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-                borderWidth: 2, 
+                borderWidth: 2,
                 borderColor: Colors.black,
                 labelStyle: const TextStyle(
                   color: Colors.black,
@@ -125,7 +126,12 @@ class _NewsViewState extends State<NewsView> {
                 ],
               ),
               const Expanded(
-                child: TabBarView(children: []),
+                child: TabBarView(children: [
+                  NewsListViewWidget(),
+                  NewsListViewWidget(),
+                  NewsListViewWidget(),
+                  NewsListViewWidget(),
+                ]),
               ),
             ],
           ),
