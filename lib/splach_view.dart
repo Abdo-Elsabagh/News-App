@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insights_news/core/app_colors.dart';
-import 'package:insights_news/feature/auth/login_view.dart';
+import 'package:insights_news/feature/upload_viem.dart';
 
 class SplachView extends StatefulWidget {
   const SplachView({super.key});
@@ -16,7 +16,7 @@ class _SplachViewState extends State<SplachView> {
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const LoginView(),
+        builder: (context) => const UploadViem(),
       ));
     });
   }
