@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insights_news/core/app_colors.dart';
+import 'package:insights_news/core/app_local_storage.dart';
+import 'package:insights_news/feature/home/home_view.dart';
 import 'package:insights_news/feature/upload_viem.dart';
 
 class SplachView extends StatefulWidget {
@@ -15,9 +17,11 @@ class _SplachViewState extends State<SplachView> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 4), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const UploadViem(),
-      ));
+      AppLocal.getBool(AppLocal.isUpload).then((value) {
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+            builder: (context) =>
+                value ? const HomeView() : const UploadViem()));
+      });
     });
   }
 

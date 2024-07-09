@@ -37,6 +37,7 @@ class _UploadViemState extends State<UploadViem> {
               onPressed: () {
                 if (imagePath != null && name.isNotEmpty) {
                   AppLocal.cacheData(AppLocal.namekey, name);
+                  AppLocal.cacheBool(AppLocal.isUpload, true);
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => const HomeView(),
                   ));
