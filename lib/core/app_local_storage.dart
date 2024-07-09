@@ -3,23 +3,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AppLocal {
   static String imagekey = 'Image_path';
   static String namekey = 'Name_key';
-  static cacheImage(String path) async {
+  static cacheData(String key, String data) async {
     var prefs = await SharedPreferences.getInstance();
-    prefs.setString(imagekey, path);
+    prefs.setString(key, data);
   }
 
-  static Future<String> getImag() async {
+  static Future<String> getChached(String key) async {
     var prefs = await SharedPreferences.getInstance();
-    return prefs.getString(imagekey) ?? '';
-  }
-
-  static cacheName(String data) async {
-    var prefs = await SharedPreferences.getInstance();
-    prefs.setString(namekey, data);
-  }
-
-  static Future<String> getName() async {
-    var prefs = await SharedPreferences.getInstance();
-    return prefs.getString(namekey) ?? '';
+    return prefs.getString(key) ?? '';
   }
 }

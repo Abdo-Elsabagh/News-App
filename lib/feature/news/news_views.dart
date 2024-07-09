@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:insights_news/core/app_colors.dart';
+import 'package:insights_news/core/app_local_storage.dart';
 import 'package:insights_news/feature/news/widget/news_list_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -30,9 +33,27 @@ class _NewsViewState extends State<NewsView> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Hello Sayed',
-                        style: TextStyle(color: AppColors.white, fontSize: 14),
+                      FutureBuilder(
+                        future: AppLocal.getChached(AppLocal.namekey),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Text(
+                              'Hello ${snapshot.data!.split(' ').first} ',
+                              style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w800),
+                            );
+                          } else {
+                            return Text(
+                              'Hello',
+                              style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w800),
+                            );
+                          }
+                        },
                       ),
                       const SizedBox(
                         height: 5,
@@ -45,13 +66,31 @@ class _NewsViewState extends State<NewsView> {
                       ),
                     ],
                   ),
-                  const CircleAvatar(
-                    radius: 22,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/image 2.jpg'),
-                      radius: 20,
-                    ),
+                  FutureBuilder(
+                    future: AppLocal.getChached(AppLocal.imagekey),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return CircleAvatar(
+                          radius: 22,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            backgroundImage: FileImage(File(snapshot.data!)),
+                            radius: 20,
+                          ),
+                        );
+                      } else {
+                        return CircleAvatar(
+                          radius: 22,
+                          backgroundColor: Colors.white,
+                          child: CircleAvatar(
+                            backgroundColor: AppColors.grey,
+                            backgroundImage:
+                                const AssetImage('assets/user.png'),
+                            radius: 20,
+                          ),
+                        );
+                      }
+                    },
                   )
                 ],
               ),

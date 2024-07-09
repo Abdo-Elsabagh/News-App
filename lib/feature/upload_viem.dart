@@ -7,7 +7,7 @@ import 'package:insights_news/core/app_local_storage.dart';
 import 'package:insights_news/feature/home/home_view.dart';
 
 String? imagePath;
-String? name = '';
+String name = '';
 
 class UploadViem extends StatefulWidget {
   const UploadViem({super.key});
@@ -21,7 +21,7 @@ class _UploadViemState extends State<UploadViem> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    AppLocal.getImag().then((value) {
+    AppLocal.getChached(AppLocal.imagekey).then((value) {
       setState(() {
         imagePath = value;
       });
@@ -35,11 +35,12 @@ class _UploadViemState extends State<UploadViem> {
         actions: [
           TextButton(
               onPressed: () {
-                if (imagePath != null && name!.isNotEmpty) {
+                if (imagePath != null && name.isNotEmpty) {
+                  AppLocal.cacheData(AppLocal.namekey, name);
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => const HomeView(),
                   ));
-                } else if (imagePath == null && name!.isEmpty) {
+                } else if (imagePath == null && name.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: Colors.red,
                       content:
@@ -150,7 +151,7 @@ class _UploadViemState extends State<UploadViem> {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.camera);
     if (pickedImage != null) {
-      AppLocal.cacheImage(pickedImage.path);
+      AppLocal.cacheData(AppLocal.imagekey, pickedImage.path);
       setState(() {
         imagePath = pickedImage.path;
       });
@@ -161,7 +162,7 @@ class _UploadViemState extends State<UploadViem> {
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
-      AppLocal.cacheImage(pickedImage.path);
+      AppLocal.cacheData(AppLocal.imagekey, pickedImage.path);
       setState(() {
         imagePath = pickedImage.path;
       });
