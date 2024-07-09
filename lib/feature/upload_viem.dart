@@ -7,7 +7,7 @@ import 'package:insights_news/core/app_local_storage.dart';
 import 'package:insights_news/feature/home/home_view.dart';
 
 String? imagePath;
-String? name;
+String? name = '';
 
 class UploadViem extends StatefulWidget {
   const UploadViem({super.key});
@@ -61,81 +61,85 @@ class _UploadViemState extends State<UploadViem> {
         ],
       ),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                  radius: 60,
-                  backgroundColor: AppColors.grey,
-                  backgroundImage: (imagePath != null)
-                      ? FileImage(File(imagePath!)) as ImageProvider
-                      : const AssetImage('assets/user.png')),
-              const SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () {
-                  getImagrFormCamera();
-                },
-                child: Container(
-                  height: 40,
-                  width: 200,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.containerBG),
-                  child: Text(
-                    'Uplaod for camera',
-                    style: TextStyle(
-                        color: AppColors.lomanda, fontWeight: FontWeight.w700),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                    radius: 60,
+                    backgroundColor: AppColors.grey,
+                    backgroundImage: (imagePath != null)
+                        ? FileImage(File(imagePath!)) as ImageProvider
+                        : const AssetImage('assets/user.png')),
+                const SizedBox(
+                  height: 20,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    getImagrFormCamera();
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 200,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.containerBG),
+                    child: Text(
+                      'Uplaod for camera',
+                      style: TextStyle(
+                          color: AppColors.lomanda,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: () {
-                  getImagrFormGallery();
-                },
-                child: Container(
-                  height: 40,
-                  width: 200,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: AppColors.containerBG),
-                  child: Text(
-                    'Uplaod for Gallery',
-                    style: TextStyle(
-                        color: AppColors.lomanda, fontWeight: FontWeight.w700),
+                const SizedBox(
+                  height: 10,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    getImagrFormGallery();
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 200,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: AppColors.containerBG),
+                    child: Text(
+                      'Uplaod for Gallery',
+                      style: TextStyle(
+                          color: AppColors.lomanda,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Divider(
-                  color: AppColors.lomanda,
-                  height: 40,
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Divider(
+                    color: AppColors.lomanda,
+                    height: 40,
+                  ),
                 ),
-              ),
-              TextFormField(
-                cursorColor: AppColors.lomanda,
-                onChanged: (value) {
-                  setState(() {
-                    name = value;
-                  });
-                },
-                style: TextStyle(color: AppColors.white),
-                decoration: InputDecoration(
-                    hintText: 'Enter Your Name',
-                    hintStyle: TextStyle(color: AppColors.grey),
-                    filled: true,
-                    fillColor: AppColors.containerBG),
-              )
-            ],
+                TextFormField(
+                  cursorColor: AppColors.lomanda,
+                  onChanged: (value) {
+                    setState(() {
+                      name = value;
+                    });
+                  },
+                  style: TextStyle(color: AppColors.white),
+                  decoration: InputDecoration(
+                      hintText: 'Enter Your Name',
+                      hintStyle: TextStyle(color: AppColors.grey),
+                      filled: true,
+                      fillColor: AppColors.containerBG),
+                )
+              ],
+            ),
           ),
         ),
       ),
